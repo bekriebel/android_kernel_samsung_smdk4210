@@ -1,3 +1,4 @@
+# Portions Copyright (C) 2012 VMware, Inc. All Rights Reserved.
 #
 # Automatically generated make config: don't edit
 # Linux/arm 3.0.15 Kernel Configuration
@@ -94,7 +95,7 @@ CONFIG_RT_GROUP_SCHED=y
 # CONFIG_SYSFS_DEPRECATED is not set
 # CONFIG_RELAY is not set
 CONFIG_BLK_DEV_INITRD=y
-CONFIG_INITRAMFS_SOURCE="usr/i777_initramfs.list"
+CONFIG_INITRAMFS_SOURCE="$(srctree)/usr/i777_initramfs.list"
 CONFIG_INITRAMFS_ROOT_UID=0
 CONFIG_INITRAMFS_ROOT_GID=0
 CONFIG_RD_GZIP=y

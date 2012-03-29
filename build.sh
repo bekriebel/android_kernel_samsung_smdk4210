@@ -1,4 +1,5 @@
 #!/bin/bash -x
+# Portions Copyright (C) 2012 VMware, Inc. All Rights Reserved.
 
 setup ()
 {
@@ -34,9 +35,7 @@ build ()
     local target_dir="$BUILD_DIR/$target"
     local module
     [ x = "x$NO_RM" ] && rm -fr "$target_dir"
-    mkdir -p "$target_dir/usr"
-    cp "$KERNEL_DIR/usr/"*.list "$target_dir/usr"
-    sed "s|usr/|$KERNEL_DIR/usr/|g" -i "$target_dir/usr/"*.list
+    mkdir -p "$target_dir"
     [ x = "x$NO_DEFCONFIG" ] && mka -C "$KERNEL_DIR" O="$target_dir" android_${target}_defconfig ARCH=arm HOSTCC="$CCACHE gcc"
     if [ x = "x$NO_BUILD" ] ; then
         mka -C "$KERNEL_DIR" O="$target_dir" ARCH=arm HOSTCC="$CCACHE gcc" CROSS_COMPILE="$CCACHE $CROSS_PREFIX" modules
